@@ -1,0 +1,134 @@
+.ai-rec-container {
+    background-color: #fdfaf6;
+    /* Soft warm background as seen in design */
+    border-radius: 8px;
+    border: 1px solid #fcebb6;
+    /* Subtle border */
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    height: 572px;
+}
+
+.ai-rec-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.icon-box {
+    background-color: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-blue-accent {
+    color: #3b82f6;
+}
+
+.ai-rec-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #f59e0b;
+    /* Orange/amber title */
+    margin: 0;
+}
+
+/* Stamp Section */
+.ai-stamp-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.approved-stamp {
+    font-size: 16px;
+    font-weight: 800;
+    color: #111827;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #111827;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-20deg);
+    opacity: 0.9;
+    position: relative;
+}
+
+/* Add a subtle inner dashed ring to the stamp */
+.approved-stamp::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    border: 1px dashed #111827;
+    border-radius: 50%;
+}
+
+/* Strengths Section */
+.strengths-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.strengths-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #92400e;
+    /* Darker amber/brown */
+    margin: 0;
+}
+
+.strengths-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.strength-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.strength-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #64748b;
+    /* Slate grey */
+}
+
+/* Bright green badges */
+.strength-badge {
+    background-color: #4ade80;
+    /* Bright green */
+    color: #064e3b;
+    /* Dark green text */
+    padding: 4px 16px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 80px;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .ai-rec-container {
+        height: auto;
+    }
+}

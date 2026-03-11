@@ -1,0 +1,123 @@
+.policy-checks-container {
+    background-color: var(--bg-surface);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* Take up 1 part of the flex container */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.policy-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.policy-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f4a8a;
+    /* Dark blue */
+    margin: 0;
+}
+
+.policy-score-badge {
+    background-color: #fff;
+    border: 1px solid #e2e8f0;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.text-green {
+    color: #10b981;
+}
+
+.text-red {
+    color: #ef4444;
+}
+
+/* List Items */
+.policy-list {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 24px;
+}
+
+.policy-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.policy-item-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.policy-icon-wrapper {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cbd5e1;
+}
+
+.policy-item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.policy-item-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.policy-item-subtitle {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Footer Link */
+.policy-footer {
+    padding: 16px 24px;
+    border-top: 1px solid #f1f5f9;
+    text-align: center;
+    margin-top: auto;
+    /* Push to bottom */
+}
+
+.policy-link {
+    font-size: 11px;
+    font-weight: 700;
+    color: #4f46e5;
+    /* Indigo/blue link color */
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.policy-link:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,161 @@
+.app-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-surface);
+  padding: 16px 24px 16px 0;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  font-family: var(--font-family);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Left Section */
+.app-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.blue-indicator {
+  width: 4px;
+  height: 48px;
+  background-color: var(--color-blue-accent);
+  border-radius: 0 4px 4px 0;
+  margin-right: 16px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.user-meta {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.separator {
+  color: #cbd5e1;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+/* Middle Section */
+.app-header-middle {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.stat-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.text-green {
+  color: var(--color-score-green);
+}
+
+.text-red {
+  color: var(--color-score-red);
+}
+
+.text-orange {
+  color: var(--color-score-orange);
+}
+
+.stat-divider {
+  width: 1px;
+  height: 32px;
+  background-color: var(--border-color);
+  opacity: 0.6;
+}
+
+/* Right Section */
+.app-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-dark {
+  background-color: var(--badge-dark-bg);
+  color: var(--badge-dark-text);
+}
+
+.badge-yellow {
+  background-color: var(--badge-yellow-bg);
+  color: var(--badge-yellow-text);
+}
+
+.badge-grey {
+  background-color: var(--badge-grey-bg);
+  color: var(--badge-grey-text);
+}
+
+@media (max-width: 1024px) {
+  .app-header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .app-header-middle {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .app-header-right {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .blue-indicator {
+    height: 32px;
+    /* Smaller blue bar on mobile */
+  }
+}

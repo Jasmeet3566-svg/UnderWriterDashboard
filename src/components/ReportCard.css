@@ -1,0 +1,75 @@
+.report-card {
+    background-color: var(--bg-surface);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    /* Allow cards to fill available space equally */
+    min-width: 0;
+    /* Important for flex children to prevent overflow */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.report-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.report-icon-container {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #fff7ed;
+    /* Very light orange background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.report-icon {
+    color: #f97316;
+    /* Bright orange icon */
+}
+
+.report-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f4a8a;
+    /* Dark blue text to match user profile */
+    margin: 0;
+}
+
+.report-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.report-list-item {
+    position: relative;
+    padding-left: 14px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    /* Grey text */
+    line-height: 1.4;
+}
+
+/* Custom orange dot bullet */
+.report-list-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fdba74;
+    /* Soft orange bullet point */
+}

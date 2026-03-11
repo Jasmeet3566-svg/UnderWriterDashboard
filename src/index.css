@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --bg-primary: #f4f7f9;
+  --bg-surface: #ffffff;
+
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-tertiary: #94a3b8;
+
+  --color-blue-accent: #2563eb;
+
+  --color-score-green: #10b981;
+  --color-score-red: #ef4444;
+  --color-score-orange: #f59e0b;
+
+  --badge-dark-bg: #1e293b;
+  --badge-dark-text: #ffffff;
+
+  --badge-yellow-bg: #fef3c7;
+  --badge-yellow-text: #92400e;
+
+  --badge-grey-bg: #f1f5f9;
+  --badge-grey-text: #475569;
+
+  --border-color: #e2e8f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reset base elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
