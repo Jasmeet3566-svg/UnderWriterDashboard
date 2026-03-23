@@ -7,6 +7,7 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     font-family: var(--font-family);
     width: 100%;
+    height: 100%;
 }
 
 /* Header */
@@ -266,6 +267,27 @@
     line-height: 1.6;
     font-style: italic;
     margin: 0;
+    white-space: pre-line;
+}
+
+.read-more-row {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.read-more-link {
+    background: none;
+    border: none;
+    color: #4f46e5;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+}
+
+.read-more-link:hover {
+    text-decoration: underline;
 }
 
 /* Footer */
@@ -277,6 +299,7 @@
     border-top: 1px solid #f1f5f9;
     background-color: #f8fafc;
     border-radius: 0 0 8px 8px;
+    margin-top: auto;
 }
 
 .last-updated {
@@ -302,4 +325,27 @@
 
 .override-btn:hover {
     text-decoration: underline;
+}
+
+.reasoning-scroll-container {
+    max-height: 8.5em;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.reasoning-scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.reasoning-scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.reasoning-scroll-container::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.reasoning-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
 }

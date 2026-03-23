@@ -11,6 +11,27 @@
     min-width: 0;
     /* Important for flex children to prevent overflow */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    min-height: 150px;
+}
+
+.report-card-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.report-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 12px;
+    cursor: pointer;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: background 150ms ease-in-out;
+}
+
+.report-toggle:hover {
+    background: rgba(0, 0, 0, 0.04);
 }
 
 .report-card-header {

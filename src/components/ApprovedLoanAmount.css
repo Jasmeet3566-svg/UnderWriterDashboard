@@ -6,9 +6,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
     gap: 12px;
+    height: 100%;
 }
 
 .approved-loan-label {

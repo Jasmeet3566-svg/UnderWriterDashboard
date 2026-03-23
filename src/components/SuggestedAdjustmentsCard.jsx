@@ -1,8 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Lightbulb, TrendingDown, Check } from 'lucide-react';
 import './SuggestedAdjustmentsCard.css';
 
 const SuggestedAdjustmentsCard = () => {
+    const [data, setData] = useState(null);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const wiName = urlParams.get('wiName') || 'MORTGAGE-0000001829-RLOS';
+
+    useEffect(() => {
+        fetch(`https://tytlmsdemo.newgensoftware.net/underwriterbackend/suggested-adjustments?wiName=${wiName}`)
+            .then(res => res.json())
+            .then(setData)
+            .catch(console.error);
+    }, [wiName]);
+
+    const formatCurrency = (amount) => {
+        return new Intl.NumberFormat('en-IN', {
+            style: 'currency',
+            currency: 'INR',
+            minimumFractionDigits: 0,
+        }).format(amount);
+    };
+
+    const formatTenure = (months) => {
+        return `${(months / 12).toFixed(1)} Years`;
+    };
+
+    const formatPercentage = (value) => {
+        return `${(value * 100).toFixed(1)}%`;
+    };
+
+    const hasLoanAmountData = data?.loanAmount?.current && data?.loanAmount?.target;
+    const hasTenureData = data?.tenure?.current && data?.tenure?.target;
+    const hasLtvData = data?.ltv?.current && data?.ltv?.target;
+
     return (
         <div className="adjustments-card-container">
             {/* Header */}
@@ -13,67 +45,73 @@ const SuggestedAdjustmentsCard = () => {
 
             <div className="adjustments-content">
                 {/* Loan Amount Adjustment */}
-                <div className="adjustment-row">
-                    <div className="adjustment-details">
-                        <div className="adjustment-label">LOAN AMOUNT</div>
-                        <div className="adjustment-values">
-                            <div className="value-group">
-                                <span className="value-label">Current</span>
-                                <span className="value-number current">70,00,000</span>
-                            </div>
-                            <span className="arrow">→</span>
-                            <div className="value-group">
-                                <span className="value-label">TARGET</span>
-                                <span className="value-number target">62,00,000</span>
+                {hasLoanAmountData && (
+                    <div className="adjustment-row">
+                        <div className="adjustment-details">
+                            <div className="adjustment-label">LOAN AMOUNT</div>
+                            <div className="adjustment-values">
+                                <div className="value-group">
+                                    <span className="value-label">Current</span>
+                                    <span className="value-number current">{formatCurrency(data.loanAmount.current)}</span>
+                                </div>
+                                <span className="arrow">→</span>
+                                <div className="value-group">
+                                    <span className="value-label">TARGET</span>
+                                    <span className="value-number target">{formatCurrency(data.loanAmount.target)}</span>
+                                </div>
                             </div>
                         </div>
+                        <div className="adjustment-impact impact-green">
+                            <TrendingDown size={14} /> {data.loanAmount.message}
+                        </div>
                     </div>
-                    <div className="adjustment-impact impact-green">
-                        <TrendingDown size={14} /> Reduces DBR to 74%
-                    </div>
-                </div>
+                )}
 
                 {/* Tenure Adjustment */}
-                <div className="adjustment-row">
-                    <div className="adjustment-details">
-                        <div className="adjustment-label">TENURE</div>
-                        <div className="adjustment-values">
-                            <div className="value-group">
-                                <span className="value-label">Current</span>
-                                <span className="value-number current">15 Years</span>
-                            </div>
-                            <span className="arrow">→</span>
-                            <div className="value-group">
-                                <span className="value-label">TARGET</span>
-                                <span className="value-number target">20 Years</span>
+                {hasTenureData && (
+                    <div className="adjustment-row">
+                        <div className="adjustment-details">
+                            <div className="adjustment-label">TENURE</div>
+                            <div className="adjustment-values">
+                                <div className="value-group">
+                                    <span className="value-label">Current</span>
+                                    <span className="value-number current">{formatTenure(data.tenure.current)}</span>
+                                </div>
+                                <span className="arrow">→</span>
+                                <div className="value-group">
+                                    <span className="value-label">TARGET</span>
+                                    <span className="value-number target">{formatTenure(data.tenure.target)}</span>
+                                </div>
                             </div>
                         </div>
+                        <div className="adjustment-impact impact-green">
+                            <TrendingDown size={14} /> {data.tenure.message}
+                        </div>
                     </div>
-                    <div className="adjustment-impact impact-green">
-                        <TrendingDown size={14} /> Reduces EMI burden
-                    </div>
-                </div>
+                )}
 
                 {/* LTV Adjustment */}
-                <div className="adjustment-row border-none">
-                    <div className="adjustment-details">
-                        <div className="adjustment-label">LTV</div>
-                        <div className="adjustment-values">
-                            <div className="value-group">
-                                <span className="value-label">Current</span>
-                                <span className="value-number current">90%</span>
-                            </div>
-                            <span className="arrow">→</span>
-                            <div className="value-group">
-                                <span className="value-label">TARGET</span>
-                                <span className="value-number target">80%</span>
+                {hasLtvData && (
+                    <div className="adjustment-row border-none">
+                        <div className="adjustment-details">
+                            <div className="adjustment-label">LTV</div>
+                            <div className="adjustment-values">
+                                <div className="value-group">
+                                    <span className="value-label">Current</span>
+                                    <span className="value-number current">{formatPercentage(data.ltv.current)}</span>
+                                </div>
+                                <span className="arrow">→</span>
+                                <div className="value-group">
+                                    <span className="value-label">TARGET</span>
+                                    <span className="value-number target">{formatPercentage(data.ltv.target)}</span>
+                                </div>
                             </div>
                         </div>
+                        <div className="adjustment-impact impact-green">
+                            <Check size={14} /> {data.ltv.message}
+                        </div>
                     </div>
-                    <div className="adjustment-impact impact-green">
-                        <Check size={14} /> Meets standard policy
-                    </div>
-                </div>
+                )}
             </div>
 
             {/* Footer Text */}

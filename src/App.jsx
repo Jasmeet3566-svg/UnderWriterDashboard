@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css'; // Added App.css import
 import ApplicationHeader from './components/ApplicationHeader';
 import UserProfileCard from './components/UserProfileCard';
@@ -12,6 +12,19 @@ import PolicyChecks from './components/PolicyChecks';
 import { TrendingUp, BarChart3 } from 'lucide-react';
 
 function App() {
+  const [riskItems, setRiskItems] = useState([]);
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const wiName = urlParams.get('wiName') || 'MORTGAGE-0000001829-RLOS';
+
+  useEffect(() => {
+    fetch(`https://tytlmsdemo.newgensoftware.net/underwriterbackend/risk-analysis?wiName=${wiName}`)
+      .then(res => res.json())
+      .then(data => {
+        setRiskItems(data && data.riskDescriptions ? data.riskDescriptions : []);
+      })
+      .catch(console.error);
+  }, [wiName]);
   return (
     <div className="app-container">
       {/* Container for ApplicationHeader */}
@@ -39,9 +52,9 @@ function App() {
                 icon={TrendingUp}
                 title="Collateral Report"
                 items={[
-                  "Increasing Price Trend",
-                  "80% Approval Rate for this collateral",
-                  "Less than 5% default rate for this"
+                  "79.1% Approval Rate for this collateral",
+                  "The builder’s default rate is currently below 5%",
+                  "The property has recorded 11 customer dropouts to date."
                 ]}
               />
             </div>
@@ -49,11 +62,7 @@ function App() {
               <ReportCard
                 icon={BarChart3}
                 title="Risk Analysis Report"
-                items={[
-                  "Over 50% of approved apps have higher bureau score",
-                  "Most Approved Applicants have lower LTV",
-                  "Average Applicant Spend similar alcohol expenses"
-                ]}
+                items={riskItems}
               />
             </div>
           </div>

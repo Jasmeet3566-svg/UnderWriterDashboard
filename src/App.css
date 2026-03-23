@@ -29,6 +29,12 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  align-items: stretch;
+}
+
+.left-sidebar > * {
+  flex: 1;
+  min-width: 0;
 }
 
 .right-content {
@@ -50,16 +56,22 @@
 .flex-3 {
   flex: 3;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .flex-2 {
   flex: 2;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .flex-1 {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 /* --- Responsive Media Queries --- */
